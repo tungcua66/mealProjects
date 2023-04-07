@@ -4,8 +4,13 @@ import {
 
 const CategoryTitle = ({ title, color }) => {
   return (
-    <View style={styles.container}>
-      <Pressable style={[styles.outerContainer, { backgroundColor: color }]}>
+    <View
+      style={styles.container}
+    >
+      <Pressable
+        style={({ pressed }) => [styles.outerContainer,
+          { backgroundColor: color, }, pressed ? styles.buttonPressed : null]}
+      >
         <View style={styles.innerContainer}>
           <Text style={styles.text}>{title}</Text>
         </View>
@@ -37,6 +42,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  buttonPressed: {
+    opacity: 0.5
   },
   text: {
     fontSize: 20,
