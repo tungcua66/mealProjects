@@ -2,7 +2,10 @@ import { View, FlatList, StyleSheet } from 'react-native';
 import { CATEGORIES } from '../data/dummy-data';
 import CategoryTitle from '../components/CategoryTitle';
 
-const Categories = () => {
+const Categories = ({ navigation }) => {
+  const onPressHandler = (item) => {
+    navigation.navigate('MealCategoryScreen', { categoryId: item.id });
+  };
   return (
     <View style={styles.container}>
       <FlatList
@@ -14,6 +17,7 @@ const Categories = () => {
             <CategoryTitle
               title={item.title}
               color={item.color}
+              onPress={() => onPressHandler(item)}
             />
           );
         }}

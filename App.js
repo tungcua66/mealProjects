@@ -1,21 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, SafeAreaView } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import MealCategoryScreen from './screens/MealCategoryScreen';
 
 import Categories from './screens/Categories';
 
+const Stack = createNativeStackNavigator();
+
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar style="light" />
-      <Categories />
-    </SafeAreaView>
+    <>
+      <StatusBar style="dark" />
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Categories" component={Categories} />
+          <Stack.Screen name="MealCategoryScreen" component={MealCategoryScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>
+
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
