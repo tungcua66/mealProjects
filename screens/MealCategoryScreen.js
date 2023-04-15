@@ -11,7 +11,7 @@ const MealCategoryScreen = ({ route }) => {
     );
   };
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         data={displayedMeals}
         keyExtractor={(item) => item.id}
@@ -23,4 +23,8 @@ const MealCategoryScreen = ({ route }) => {
 
 export default MealCategoryScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: 'center',
+  }
+});
