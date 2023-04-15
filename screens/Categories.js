@@ -4,7 +4,7 @@ import CategoryTitle from '../components/CategoryTitle';
 
 const Categories = ({ navigation }) => {
   const onPressHandler = (item) => {
-    navigation.navigate('MealCategoryScreen', { categoryId: item.id });
+    navigation.navigate('MealCategoryScreen', { categoryId: item.id, title: item.title });
   };
   return (
     <View style={styles.container}>

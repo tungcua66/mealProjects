@@ -39,7 +39,7 @@ export default MealItem;
 
 const styles = StyleSheet.create({
   outerContainer: {
-    margin: 16,
+    margin: 24,
     borderRadius: 8,
     backgroundColor: 'white',
     overflow: Platform.OS === 'android' ? 'hidden' : 'visible',
