@@ -2,10 +2,19 @@ import {
   StyleSheet, Text, View, Image, Pressable, Platform
 } from 'react-native';
 
+import { useNavigation } from '@react-navigation/native';
+
 const MealItem = ({ mealItem }) => {
+  const navigation = useNavigation();
+  const selectedMealHandler = () => {
+    navigation.navigate('MealDetailsScreen', { mealItem });
+  };
   return (
     <View style={styles.outerContainer}>
-      <Pressable style={({ pressed }) => (pressed ? styles.pressable : null)}>
+      <Pressable
+        style={({ pressed }) => (pressed ? styles.pressable : null)}
+        onPress={selectedMealHandler}
+      >
         <View>
           <View style={styles.innerContainer}>
             <Image
