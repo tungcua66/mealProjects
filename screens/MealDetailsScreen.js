@@ -3,12 +3,23 @@ import {
   StyleSheet, Text, View, Image, ScrollView
 } from 'react-native';
 import DetailList from '../components/MealDetail/DetailList';
+import IconButton from '../components/IconButton';
 
 const MealDetailsScreen = ({ route, navigation }) => {
   const { mealItem } = route.params;
+  const renderIconButton = () => {
+    return (
+      <IconButton
+        name="ios-star"
+        size={24}
+        color="white"
+      />
+    );
+  };
   useLayoutEffect(() => {
     navigation.setOptions({
       title: route.params.mealItem.title,
+      headerRight: renderIconButton
     });
   });
   return (
